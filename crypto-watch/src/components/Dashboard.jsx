@@ -4,6 +4,12 @@ import SearchBar from './SearchBar'
 import FilterSlider from './FilterSlider'
 import SummaryStats from './SummaryStats'
 
+import { Link } from 'react-router-dom'
+import ChartPrice from './ChartPrice'
+import ChartChange from './ChartChange'
+
+
+
 const Dashboard = () => {
   const [coins, setCoins] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
@@ -31,22 +37,29 @@ const Dashboard = () => {
   )
 
   return (
-    <div className="dashboard">
-      <SummaryStats coins={filteredCoins} />
-      <SearchBar setSearchTerm={setSearchTerm} />
-      <FilterSlider minChange={minChange} setMinChange={setMinChange} />
-      <div className="coin-list">
-        {filteredCoins.map(coin => (
-          <div key={coin.id} className="coin-row">
-            <img src={coin.image} alt={coin.name} />
-            <span>{coin.name}</span>
-            <span>${coin.current_price.toFixed(2)}</span>
-            <span>MC: ${coin.market_cap.toLocaleString()}</span>
-            <span>24h: {coin.price_change_percentage_24h.toFixed(2)}%</span>
-          </div>
-        ))}
-      </div>
-    </div>
+<div className="dashboard">
+  <SummaryStats coins={filteredCoins} />
+  <SearchBar setSearchTerm={setSearchTerm} />
+  <FilterSlider minChange={minChange} setMinChange={setMinChange} />
+
+  <div className="charts">
+    <ChartPrice coins={filteredCoins} />
+    <ChartChange coins={filteredCoins} />
+  </div>
+
+  <div className="coin-list">
+    {filteredCoins.map(coin => (
+      <Link to={`/coin/${coin.id}`} key={coin.id} className="coin-row">
+        <img src={coin.image} alt={coin.name} />
+        <span>{coin.name}</span>
+        <span>${coin.current_price.toFixed(2)}</span>
+        <span>MC: ${coin.market_cap.toLocaleString()}</span>
+        <span>24h: {coin.price_change_percentage_24h.toFixed(2)}%</span>
+      </Link>
+    ))}
+  </div>
+</div>
+
   )
 }
 

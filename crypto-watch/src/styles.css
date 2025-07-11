@@ -15,7 +15,7 @@ header {
   width: 100%;
   background-color: #1a1a2e;
   padding: 1rem 0;
-  text-align: center;
+  text-align: left;
 }
 
 header h1 {
@@ -70,6 +70,8 @@ input[type="range"] {
 .coin-list {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 10px; /* add some space between the element and the graph above */
+  padding-top: 10px; /* add some padding to prevent overlap */
 }
 
 .coin-row {
@@ -103,4 +105,41 @@ input[type="range"] {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+
+
+
+
+
+.dashboard {
+  max-width: 1000px;
+  margin: auto auto;
+  padding: 20px;
+}
+
+.summary, .charts, .coin-list {
+  margin-bottom: 60px;
+}
+
+.charts {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.chart-wrapper {
+  background-color: #1c1c3a;
+  padding: 1rem;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+
+.custom-tooltip {
+  background: darkblue;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+  color: white;
 }
