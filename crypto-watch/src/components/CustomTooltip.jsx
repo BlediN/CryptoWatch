@@ -1,4 +1,4 @@
-const CustomTooltip = ({ active, payload, label, chartType }) => {
+export default ({ active, payload, label, chartType }) => {
   if (active && payload && payload.length) {
     const data = payload[0].payload;
     if (chartType === 'price') {

@@ -1,5 +1,5 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
-import CustomTooltip from './CustomToolTip'
+import CustomTooltip from './CustomTooltip'
 
 export default function ChartChange({ coins }) {
   const data = coins.map(coin => ({
@@ -13,7 +13,7 @@ export default function ChartChange({ coins }) {
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={data}
-          margin={{ top: 20, right: 30, left: 20, bottom: 10 }} // bottom space for rotated labels
+          margin={{ top: 20, right: 30, left: 100, bottom: 10 }} // bottom space for rotated labels
         >
           <XAxis
             dataKey="name"
@@ -22,11 +22,11 @@ export default function ChartChange({ coins }) {
             interval={0}
             dy={10}
             height={100}
-            tick={{ fill: 'white', fontSize: 12 }}
+            tick={{ fill: 'red', fontSize: 12 }}
           />
-          <YAxis domain={['dataMin - 5', 'dataMax + 5']} tick={{ fill: 'white' }} />
+          <YAxis domain={['dataMin', 'dataMax']} tick={{ fill: 'white' }} />
           <Tooltip content={<CustomTooltip chartType="change" />} />
-          <Bar dataKey="change" fill="#82ca9d" />
+          <Bar dataKey="change" fill="#f6ff00ff" />
         </BarChart>
       </ResponsiveContainer>
     </div>

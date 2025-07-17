@@ -1,5 +1,5 @@
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
-import CustomTooltip from './CustomToolTip'
+import CustomTooltip from './CustomTooltip'
 
 
 export default function ChartPrice({ coins }) {
