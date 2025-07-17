@@ -1,4 +1,4 @@
-export default ({ active, payload, label, chartType }) => {
+export default function CustomTooltip ({ active, payload, label, chartType }) {
   if (active && payload && payload.length) {
     const data = payload[0].payload;
     if (chartType === 'price') {
@@ -19,4 +19,3 @@ export default ({ active, payload, label, chartType }) => {
   }
   return null;
 };
-

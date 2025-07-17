@@ -1,5 +1,5 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
-import CustomTooltip from './CustomTooltip'
+import CustomTooltip from './CustTooltip'
 
 export default function ChartChange({ coins }) {
   const data = coins.map(coin => ({
